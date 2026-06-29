@@ -1,4 +1,7 @@
 package com.catalog.framework.dto;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
 
 /**
  * Hot spot: subclasses definem os campos opcionais para atualização parcial.
@@ -6,7 +9,6 @@ package com.catalog.framework.dto;
  * Usado no endpoint PATCH (atualização parcial).
  */
 @NoArgsConstructor
-@AllArgsConstructor
 @SuperBuilder
 public abstract class EntryUpdateRequest {
 }

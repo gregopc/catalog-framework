@@ -11,7 +11,7 @@ import com.example.smartstore.dto.ProductUpdateRequest;
 import com.example.smartstore.mapper.ProductMapper;
 import com.example.smartstore.service.SmartStoreAssistantService;
 import lombok.extern.slf4j.Slf4j;
-import main.java.com.example.smartstore.service.ProductService;
+import com.example.smartstore.service.ProductService;
 
 import org.springframework.stereotype.Service;
 

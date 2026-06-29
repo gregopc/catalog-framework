@@ -2,6 +2,7 @@ package com.example.smartstore.dto;
 
 import com.catalog.framework.dto.EntryResponse;
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 import java.math.BigDecimal;
 

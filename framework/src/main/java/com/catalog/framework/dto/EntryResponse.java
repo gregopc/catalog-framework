@@ -1,6 +1,7 @@
 package com.catalog.framework.dto;
 
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 import java.time.LocalDateTime;
 import java.util.UUID;

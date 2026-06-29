@@ -3,6 +3,7 @@ package com.example.smartstore.dto;
 import com.catalog.framework.dto.EntryUpdateRequest;
 import jakarta.validation.constraints.Min;
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 import java.math.BigDecimal;
 

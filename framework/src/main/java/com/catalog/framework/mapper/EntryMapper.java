@@ -3,6 +3,7 @@ package com.catalog.framework.mapper;
 import com.catalog.framework.domain.Entry;
 import com.catalog.framework.dto.EntryRequest;
 import com.catalog.framework.dto.EntryResponse;
+import com.catalog.framework.dto.EntryUpdateRequest;
 
 public interface EntryMapper<
         E extends Entry,

@@ -4,13 +4,14 @@ import com.catalog.framework.mapper.EntryMapper;
 import com.catalog.framework.repository.EntryRepository;
 import com.catalog.framework.repository.EntrySpecification;
 import com.catalog.framework.service.EntryServiceImpl;
+import com.catalog.framework.domain.EntrySortField;
 import com.example.smartstore.domain.Product;
 import com.example.smartstore.domain.ProductSortField;
 import com.example.smartstore.dto.ProductFilters;
 import com.example.smartstore.dto.ProductRequest;
 import com.example.smartstore.dto.ProductResponse;
 import com.example.smartstore.dto.ProductUpdateRequest;
-import com.example.smartstore.exception.BusinessException;
+import com.catalog.framework.exception.BusinessException;
 import com.example.smartstore.mapper.ProductMapper;
 import com.example.smartstore.repository.ProductRepository;
 import com.example.smartstore.repository.ProductSpecification;
@@ -49,8 +50,8 @@ public class ProductServiceImpl extends EntryServiceImpl<
     protected EntryMapper<
             Product,
             ProductRequest,
-            ProductResponse,
-            ProductUpdateRequest> getMapper() {
+            ProductUpdateRequest,
+            ProductResponse> getMapper() {
         return mapper;
     }
 
@@ -91,7 +92,7 @@ public class ProductServiceImpl extends EntryServiceImpl<
     @Override
     protected Comparator<Product> buildComparator(String sortBy) {
 
-        ProductSortField.fromString(sortBy);
+        EntrySortField.fromString(ProductSortField.class, sortBy);
 
         return switch (sortBy) {
             case "price" ->

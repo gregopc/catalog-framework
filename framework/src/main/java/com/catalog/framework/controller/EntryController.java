@@ -42,7 +42,7 @@ public abstract class EntryController<
     /**
      * Hot spot: subclasses informam o caminho base para o header Location no POST.
      */
-    protected abstract String getResourcePath();
+    protected abstract String getBasePath();
 
     @PostMapping
     public ResponseEntity<RES> create(@Valid @RequestBody REQ request) {

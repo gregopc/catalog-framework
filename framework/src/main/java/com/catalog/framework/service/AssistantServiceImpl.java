@@ -2,6 +2,8 @@ package com.catalog.framework.service;
 
 import com.catalog.framework.ai.AIClient;
 import com.catalog.framework.domain.Entry;
+import com.catalog.framework.domain.ai.ChatHistoryEntry;
+import com.catalog.framework.domain.ai.Suggestion;
 import com.catalog.framework.dto.EntryRequest;
 import com.catalog.framework.dto.EntryResponse;
 import com.catalog.framework.dto.EntryUpdateRequest;
