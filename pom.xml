@@ -21,6 +21,8 @@
     <modules>
         <module>framework</module>
         <module>example/smartstore</module>
+        <module>example/smart-movies</module>
+        <module>example/smart-real-state</module>
     </modules>
 
     <properties>
