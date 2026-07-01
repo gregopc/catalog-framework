@@ -11,7 +11,7 @@ import com.example.smartrealstate.dto.PropertyFilters;
 import com.example.smartrealstate.dto.PropertyRequest;
 import com.example.smartrealstate.dto.PropertyResponse;
 import com.example.smartrealstate.dto.PropertyUpdateRequest;
-import com.catalog.framework.exception.BusinessException;
+
 import com.example.smartrealstate.mapper.PropertyMapper;
 import com.example.smartrealstate.repository.PropertyRepository;
 import com.example.smartrealstate.repository.PropertySpecification;
@@ -19,7 +19,7 @@ import com.example.smartrealstate.service.PropertyService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.math.BigDecimal;
+
 import java.util.Comparator;
 
 @Service
@@ -55,25 +55,6 @@ public class PropertyServiceImpl extends EntryServiceImpl<
         return mapper;
     }
 
-    @Override
-    protected void validateOnSave(PropertyRequest request) {
-        if (request.getPrice() != null && request.getPrice().compareTo(BigDecimal.ZERO) < 0) {
-            throw new BusinessException("Price cannot be negative");
-        }
-        if (request.getArea() != null && request.getArea() <= 0) {
-            throw new BusinessException("Area must be positive");
-        }
-    }
-
-    @Override
-    protected void validateOnPartialUpdate(PropertyUpdateRequest request) {
-        if (request.getPrice() != null && request.getPrice().compareTo(BigDecimal.ZERO) < 0) {
-            throw new BusinessException("Price cannot be negative");
-        }
-        if (request.getArea() != null && request.getArea() <= 0) {
-            throw new BusinessException("Area must be positive");
-        }
-    }
 
     @Override
     protected Comparator<Property> buildComparator(String sortBy) {

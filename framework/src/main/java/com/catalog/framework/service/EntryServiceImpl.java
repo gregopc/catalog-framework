@@ -34,12 +34,12 @@ public abstract class EntryServiceImpl<
     /**
      * Hot spot: valida regras de negócio antes de criar ou atualizar completamente.
      */
-    protected abstract void validateOnSave(REQ request);
+    protected void validateOnSave(REQ request) {}
 
     /**
      * Hot spot: valida regras de negócio antes de atualizar parcialmente.
      */
-    protected abstract void validateOnPartialUpdate(UPD request);
+    protected void validateOnPartialUpdate(UPD request) {}
 
     /**
      * Hot spot: define o Comparator para ordenação explícita por campo.

@@ -11,22 +11,23 @@ import org.springframework.web.bind.annotation.*;
 @Tag(name = "Assistant", description = "Assistente inteligente do catálogo")
 @RestController
 @RequestMapping("/assistant")
+@CrossOrigin(origins = "*")
 @RequiredArgsConstructor
-public abstract class AssistantController {
+public class AssistantController {
 
-    protected abstract AssistantService getService();
+    private final AssistantService assistantService;
 
     @Operation(summary = "Chat com o assistente",
                description = "Recebe mensagem do usuário e retorna resposta contextual")
     @PostMapping("/chat")
     public ResponseEntity<ChatResponse> chat(@RequestBody ChatRequest request) {
-        return ResponseEntity.ok(getService().chat(request.getMessage()));
+        return ResponseEntity.ok(assistantService.chat(request.getMessage()));
     }
 
     @Operation(summary = "Sugestões do assistente",
                description = "Recebe histórico de mensagens e retorna resposta + itens recomendados do catálogo")
     @PostMapping("/suggestion")
     public ResponseEntity<ChatSuggestionResponse> suggestion(@RequestBody ChatSuggestionRequest request) {
-        return ResponseEntity.ok(getService().chatSuggestion(request));
+        return ResponseEntity.ok(assistantService.chatSuggestion(request));
     }
 }

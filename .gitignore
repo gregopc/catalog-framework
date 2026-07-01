@@ -56,6 +56,8 @@ dist/
 # ============================================================================
 
 data/
+# EXCEÇÃO: Não ignora pastas 'data' que estejam dentro da estrutura de código Java
+!**/src/main/java/**/data/
 
 # ============================================================================
 # Arquivos temporários

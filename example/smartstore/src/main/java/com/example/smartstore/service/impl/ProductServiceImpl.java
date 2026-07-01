@@ -19,7 +19,6 @@ import com.example.smartstore.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.math.BigDecimal;
 import java.util.Comparator;
 
 @Service
@@ -55,39 +54,6 @@ public class ProductServiceImpl extends EntryServiceImpl<
         return mapper;
     }
 
-    @Override
-    protected void validateOnSave(ProductRequest request) {
-
-        if (request.getPrice().compareTo(BigDecimal.ZERO) <= 0) {
-            throw new BusinessException("Price must be positive");
-        }
-
-        if (request.getStock() < 0) {
-            throw new BusinessException("Stock cannot be negative");
-        }
-
-        if (request.getImageUrl() != null && request.getImageUrl().isBlank()) {
-            throw new BusinessException("Image URL cannot be blank");
-        }
-    }
-
-    @Override
-    protected void validateOnPartialUpdate(ProductUpdateRequest request) {
-
-        if (request.getPrice() != null &&
-                request.getPrice().compareTo(BigDecimal.ZERO) <= 0) {
-            throw new BusinessException("Price must be positive");
-        }
-
-        if (request.getStock() != null &&
-                request.getStock() < 0) {
-            throw new BusinessException("Stock cannot be negative");
-        }
-
-        if (request.getImageUrl() != null && request.getImageUrl().isBlank()) {
-            throw new BusinessException("Image URL cannot be blank");
-        }
-    }
 
     @Override
     protected Comparator<Product> buildComparator(String sortBy) {
